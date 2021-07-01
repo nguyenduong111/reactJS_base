@@ -1,0 +1,65 @@
+
+Xử lý sự kiện (event handling in reactJS)
+
++ viết inline trong thẻ
+
+* Cách 1 (App): func và ko có ()
+    function OnClick() {
+        console.log("abc");
+    }
+
+    <div class="abc" onClick={OnClick}>
+    </div>
+
+    (* lưu ý: + nếu viết component theo class: onClick={this.OnClick}
+              + func ko có tham số thì khi gọi lại hàm ko có (), nếu viết () sẽ bị lỗi 
+              + tìm hiểu thêm các sự kiện trên docs reactJS: https://reactjs.org/docs/events.html#gatsby-focus-wrapper  
+    )
+
+* Cách 2 (App): có tham số , sử dụng () => {}
+    function OnClick(text) {
+        console.log(text);
+    }
+
+    <div class="abc" onClick={ () => {OnClick("abc)} }>
+    </div>
+
++ demo vào Product
+    * c1: viết arrow func trong tag
+    * C2: viết arrow func thành 1 biến
+
+*(lưu ý với viết component với class)
+    * c1: constructor(props) 
+    * c2: <phương thức> = () => {}
+    
+    class Product extends Component {
+        constructor(props) {
+            super(props);
+            this.OnClick = this.OnClick.bind(this);
+        }
+
+        OnClick() {
+            alert(`  ${props.name}
+            ${props.price}`);
+        }
+
+        render() {
+            return (
+                <div className="Product" style={{margin:"10px"}}>
+                    <Card>
+                        <CardImg top width="100%" src={props.img} alt={props.name} />
+                        <CardBody>
+                            <CardTitle tag="h5"> {props.name} </CardTitle>
+                            <CardSubtitle tag="h6" className="mb-2 text-muted"> {props.price} </CardSubtitle>
+                            <CardText> {props.describe} </CardText>
+
+                            <Button onClick={ this.OnClick }>Read more</Button>
+                        
+                        </CardBody>
+                    </Card>
+                        
+                    {/* </div> */}
+                </div>
+            );
+        }
+    }

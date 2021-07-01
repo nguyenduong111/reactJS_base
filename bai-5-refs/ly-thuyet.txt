@@ -1,0 +1,48 @@
+
+ Refs
+
+--------Refs
++ đọc thêm trên docs: https://reactjs.org/docs/refs-and-the-dom.html#gatsby-focus-wrapper
++ tác dụng: lấy ra các giá trị hoặc trả về tag html (input, textarea,...)
++ cách dùng: tại thẻ cần tương tác thêm attribute ref
+
++ có sử dụng khác biệt trong component func và class
+    * App-function.js (demo dùng với function component)
+
+        import React, { useRef } from 'react';    
+
+        const myRef = useRef(null);     // khởi tạo
+
+        const func = () => {
+            // hàm tương tác
+            // cách truy cập đến refs
+                let temp = myRef             // trả về thẻ html có attribute ref={myRef}
+                let temp = myRef.current     // truy cập vào thuộc tính của thẻ 
+                
+                // ví dụ
+                let temp = myRef.current.value   // trả về string chứa trong <input>
+        }
+
+        ...
+        <input ref={myRef} />
+
+    * App-class.js (demo dùng với class component)
+
+        constructor(props) {
+            super(props);
+            this.myRef = React.createRef();    // khởi tạo
+        }
+
+        func = () => {
+            // hàm tương tác
+            // cách truy cập refs
+                let temp = this.myRef          // trả về thẻ html
+                let temp = this.myRef.current  // thuộc tính
+
+                // ví dụ
+                let temp = this.myRef.current.value    // // trả về string chứa trong <input>
+        }
+
+        ...
+        <input ref={this.myRef} />
+

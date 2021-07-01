@@ -1,0 +1,44 @@
+
+tạo, chạy project, cấu trúc proj reactjs, components
+
+1, khởi tạo project mới
+    npx create-react-app <tên project>
+2, run chương trình
+    npm start
+
+Cấu trúc thư mục project reactjs
+
+1, package.json
+    nơi khai báo tên proj, version, dependencies(các package sử dụng)
+
+2, node_modules
+    nơi chưa các thư viện
+
+3, public
+    index.html (file chạy đầu tiên)
+        thẻ quan trọng nhất là <div id="root">
+
+4, src (làm việc chủ yếu)
+
+Add thêm thư viện ngoài(ví dụ là bootstrap và reactstrap)
+    npm install --save bootstrap
+    npm install --save reactstrap react react-dom
+
+    (*lưu ý: nhớ import đủ các thư viện cần
+        import 'bootstrap/dist/css/bootstrap.min.css';
+        ....
+    )
+
+Components
+    + là các thành phần trong 1 trang web, tức là 1 trang web đc cấu tạo từ nhiều 
+    components.
+    + các components đc chia nhỏ ra để dễ dàng quản lý và sửa chữa
+    + ví dụ tạo 1 components (Demo.js)
+
+    + ví dụ: tạo 1 folder Components (chứa các components)
+
+    + lưu ý có 2 cách viết sử dụng class(es6) hoặc sử dụng function 
+
+    *(lưu ý(jsx tìm hiểu sau): + định  nghĩa class trong các tag phải viết thành className="", nếu chỉ viết class="" sẽ báo lỗi
+             + các tag ko bao gồm thẻ đóng (input, hr) phải viết thêm "/" ở cuối thẻ (<input something />) 
+    )

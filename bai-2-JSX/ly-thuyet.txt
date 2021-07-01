@@ -1,0 +1,15 @@
+
+JSX
+
++ JSX( Javascript Syntax Extension - JS XML): viết theo XML, thay thế cho 
+    React.createElement()
++ JSX ko phải htlm
++ khá tương đồng với html
++ một vài lỗi hay gặp khi viết JSX
+    class -> className
+    tag ko có thẻ đóng <></> ví dụ như (input, hr, br,...)
+    ví dụ: <input something>  --> <input  something />
++ tra thêm: HTML to JSX trên mạng
++ tác dụng: tương tự như html
+
++ tính toán, hiển thị các biến(value) trong JSX

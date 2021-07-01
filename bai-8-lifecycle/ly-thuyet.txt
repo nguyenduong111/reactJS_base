@@ -1,0 +1,65 @@
+
+----------life cycle components-------------
+
++ vòng đời của của components
++ 3 giai đoạn: 
+    * tạo ra (mounting, thêm vào DOM, hiển thị lên UI)
+    * thay đổi (updating)
+    * hủy bỏ (unmounting, xóa khỏi DOM, xóa khỏi UI)
+
++ sơ đồ đầy đủ của lifecycle: 
+    https://i0.wp.com/programmingwithmosh.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-31-at-1.44.28-PM.png?resize=1024%2C567&ssl=1
++ sơ đồ thu gọn
+    https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ogimage.png
+
++ mounting và unmounting chỉ thực hiện duy nhất 1 lần, còn updating có thể đc thực hiện nhiều lần
+
++ các func dùng:    constructor, 
+                    render, 
+                    componentDidMount, 
+                    componentWillUnmount,
+                    componentDidUpdate (hạn chế, cẩn thận trở thành vòng lặp vô tận)
+
++ một vài lifecycle cũ: componentWillMount(), 
+                        componentWillReceiveProps()
+    chuyển sang sử dụng componentDidMount
+
++ nên sử dụng PureComponent thay vì Component 
+    do trong PureComponent có thêm hàm shouldComponentUpdate(): so sánh giá trị(===) trước và sau,
+    nếu khác nhau thì mới chuyển xuống hàm render 
+
++ chi tiết về các lifecycle
+
+* constructor()
+    + sử dụng thoải mái
+    + nhớ: super(props)
+    + thường dùng để: khai báo state, định nghĩa properties(tính chất) của component
+    + ví dụ
+        class App() extends PureComponent {
+            constructor(props) {
+                super(props);
+
+                this.HANG_SO = 10; // LUÔN VIẾT HOA VÀ CÁCH BẰNG "_"
+
+                this.state = {
+                    productList: []
+                };
+            }
+        }
+
+* componentDidMount()
+    + dùng bình thường
+    + gọi API, biến đổi dữ liệu, cập nhật state
+    
+    (sẽ tìm hiểu sau)
+
+* componentWillUnmount()
+    + dùng bth
+    + clear timeout, interval 
+    + reset dữ liệu trên redux
+
+    (sẽ tìm hiểu sau)
+
+* componentDidUpdate()
+
+    (sẽ tìm hiểu sau)

@@ -1,0 +1,68 @@
+
+---------------Form-----------------
+
++ mục đính lấy đc giá trị trong form
++ form nhận sự kiện onSubmit
+    <form onSubmit={ func event } > </form>
+    <button type="submit"> </button>
+
++ các loại form: text, textarea, select, radio
++ trong ví dụ sử dụng state để nhận giá trị
+    *lưu ý: nên đặt attribute name của thẻ trùng với key của state để dễ sử dụng
+
+        let [a, b] = useState(
+            {
+                useName: "hbfhabshfa,
+            }
+        )
+
+        <input 
+            name: "useName"
+        />
+
+* text: (input)
+    + lấy giá trị trong ô input
+    + giá trị của file input chặn quyền ghi (read-only),
+        nên nó là một uncontrolled component( thành phần ko kiểm soát) trong React
+    + bắt sự kiện: onChange={ func }
+    + giá trị mặc định: value={ biến value mặc định (thường trong state) }
+    + name="<trùng tên với key state>"
+    + onChange={ func }, hàm bắt sự kiện
+
+* textarea: chứa các đoạn văn bản (đoạn mô tả)
+    + name=""
+    + value={}
+    + onChange={}
+
+* select: chứa các lựa chọn (tạo ra một drop-down list)
+    <select
+        name
+        value
+        onChange
+    >
+        <option value= > 1 </option>
+        <option value= > 2 </option>
+    </select>
+
+* radio: chứa các lựa chọn
+ (để chỉ chọn đc 1 trong các lựa chọn thì các radio phải có cùng name="")
+    <input 
+        type="radio"
+        name
+        value
+        onChange
+        checked={state.vlaue === "<value>"} // kiểm tra lựa chọn ban đầu
+    />
+
+* checkbox: tạo ra 1 ô, (tích hoặc ko tích)
+    (khác với các trường hợp trên, giá trị của checkbox đc lưu trong event.target.checked
+        Giải pháp: kiểm tra xem target.type === "checkbox" hay ko, nếu đúng thì lấy giá trị trong targrt.checked
+        ko thì lấy giá trị trong target.value
+    )
+    <input 
+        type="checkbox"  
+        name="chkbStatus" 
+        value={ true } 
+        onChange= {onHandleChange}
+        checked={text.chkbStatus === true}
+    />

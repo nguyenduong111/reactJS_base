@@ -1,0 +1,69 @@
+
+State 
+
++ là các trạng thái của component
++ khai báo những giá trị cần lưu trữ riêng của componenent đó
+
++ bảng so sánh state với props 
+
+    * props: + nhận dữ liệu từ ngoài
+             + không thể thay đổi giá trị 
+
+    * state: + dữ liệu nội bộ
+             + có thể thay đổi giá trị
+
+* state hook (function component)
+    import React, {useState} from 'react';    // import thư viện useState
+
+    const [value, setValue] = useState(<giá trị ban đầu value>);
+    // là [] vì useState() trả về 1 arr
+    // luôn luôn là 1 cặp [value, setValue] đi với nhau
+        value chứa giá trị
+        setValue để quản lý value (thay đổi)
+
+    + ví dụ: 
+        const [active, setActive] = useState({isActive: true}); // khởi tạo
+        ....
+        active = {isActive: true}
+        active.isActive = true
+
+        // để thay đổi giá trị active phải dùng qua setActive
+        // ko thể trực tiếp thay đổi gán lại giá trị cho active đc
+        // active ko nhất thiết phải là obj
+        // tên đặt trong [] là bất kì [duong, nguyen] = useState(1)
+ 
+        setActive(
+            {
+                isActive: false
+            }
+        )
+
+        active = {isActive: false}
+        active.isActive = false
+
+* state trong class component
+
+    // khởi tạo state trong constructor()
+    constructor(props) {
+        super(props);
+        this.state = {
+            isActive: true,
+            abc: def,
+            ase: 123
+        };
+    }
+
+    // lưu ý: state bắt buộc là obj
+    // sử dụng
+    this.state.isActive = true
+
+    // thay đổi state
+    this.setState(
+        {
+            isActive: false
+        }
+    )
+
+
+
+

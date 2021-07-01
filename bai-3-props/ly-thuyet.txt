@@ -1,0 +1,17 @@
+
+Props
+
++ là các thuộc tính của components
++ truyền dữ liệu từ "cha" sang "con", theo dạng key="value" (*lưu ý: ko đặt tên key là children)
+    value nhận vào kiểu string. Nếu muốn truyền đúng kiểu dữ liệu thì key={value}
++ nhận value trong "con"
+    * class (kế thừa từ class Component)
+        nhận value: {this.props.key}
+    * function(props)
+        nhận value: {props.key}
++ nội dung của thẻ sẽ đc truyền vào props.children
+    "cha" : <Product> nội dung </Product>
+    "con" : {props.children}     (nội dung)
++ demo hiển thị
+    * truyền trực tiếp
+    * truyền qua hàm
